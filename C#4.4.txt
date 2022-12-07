@@ -1,0 +1,36 @@
+using System;
+
+class Program {
+   static int [] GetMultiple(int a, int b){
+    int size = 0;
+    for(int i=a; i<=b;i++){
+      if (i%7 == 0){
+        size++;
+      }
+    }
+    int[] mass = new int [size];
+
+    int j=0;
+    for(int i=a;i<=b;i++){
+      if(i%7 == 0){
+        mass[j]=i;
+        j++;
+      }
+    }
+     
+    return mass;
+  }
+
+  static void PrintEven(int[] a) {
+    for(int i=1;i<a.Length;i+=2){
+      Console.Write(a[i]+" ");
+    }
+  }
+
+  
+    static void Main(string[] args) {
+      int startValue = int.Parse(Console.ReadLine());
+      int endValue = int.Parse(Console.ReadLine());
+      PrintEven(GetMultiple(startValue, endValue)); 
+  }
+}

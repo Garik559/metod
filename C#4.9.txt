@@ -1,0 +1,29 @@
+using System;
+
+class Program {
+    static void Opposite(int[] mass){
+      for(int i=0;i<mass.Length;i++){
+        if(mass[i]<0){
+          mass[i] = Math.Abs(mass[i]);
+        }
+        else{
+          mass[i]=mass[i]*(-1);
+        }
+      }
+    }
+  
+    static void Main(string[] args) {
+      Console.WriteLine("Введите размер массива: ");
+      int n = int.Parse(Console.ReadLine());
+      int[] mass = new int[n];
+      for(int i=0;i<n;i++){
+        Console.WriteLine("Введите элемент: ");
+        mass[i] = int.Parse(Console.ReadLine());
+      }
+      Opposite(mass);
+
+      foreach(var i in mass){
+        Console.Write(i + " ");
+      }
+  }
+}
