@@ -1,0 +1,40 @@
+using System;
+
+class Program {
+    class nasekom {
+      public int x;
+      public int y;
+      public int z;
+
+
+      
+      public nasekom(int vx, int vy, int vz)
+      {
+        x = vx;
+        y = vy;
+        z = vz;
+      }
+
+
+      
+      public double GetDistant(nasekom spider)
+      {
+        return Math.Abs(Math.Sqrt(Math.Pow(spider.x - x, 2) + Math.Pow(spider.y - y, 2) + Math.Pow(spider.z - z, 2)));
+      }
+
+      public double GetWay(nasekom fly)
+      {
+        return Math.Round(Math.Abs(Math.Sqrt(Math.Pow((fly.x - x), 2) + Math.Pow((fly.y - y), 2))) + z, 5);
+      }
+    }
+  
+    static void Main(string[] args) {
+      nasekom fly = new nasekom(1, 2, 0);
+      nasekom spider = new nasekom(1, 2, 1);
+      if(fly.z != 0) {
+        Console.WriteLine("Некорректные данные.");
+      }
+      Console.WriteLine("Расстояние между мухой и пауком по прямой линии: " + fly.GetDistant(spider));
+      Console.WriteLine("Путь, который необходимо пройти пауку до мухи: " + spider.GetWay(fly));
+    }
+}
