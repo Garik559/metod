@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static void Main(string[] args) {
+      List<int> a = new List<int>();
+      Console.WriteLine("Введите числа через пробел");
+      string text = Console.ReadLine();
+      string[] m = text.Split(new Char[] {' '});
+      foreach(var i in m){
+        a.Add(int.Parse(i));
+      }
+      foreach(var i in a){
+        Console.Write(i+" ");
+      }
+      List<int> b = new List<int>();
+
+      Console.WriteLine();
+      for(int i = 0; i < a.Count; i++){
+        if(a[i] == 0){
+          for(int j = i + 1; a[j] != 0; j++)
+          {
+            b.Add(a[j]);
+          }
+          break;
+        }
+      }
+
+      
+      b.Sort();
+      b.Reverse();
+
+      
+      Console.Write("b = ");
+        foreach(var i in b){
+        Console.Write(i+" ");
+      }
+    }
+}

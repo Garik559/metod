@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+class Program {
+    static List<int> GetListInt(int n) {
+      Random rnd = new Random();
+      List<int> list = new List<int>();
+      for(int i = 0; i < n; i++) {
+        list.Add(rnd.Next(0, 100));
+      }
+      return list;
+    }
+    static List<double> GetListDouble(int n) {
+      Random rnd = new Random();
+      List<double> list = new List<double>();
+      for(int i = 0; i < n; i++) {
+        list.Add(rnd.NextDouble()*rnd.Next(10, 1000));
+      }
+      return list;
+    }
+    static List<char> GetListChar(int n) {
+      Random rnd = new Random();
+      List<char> list = new List<char>();
+      for(int i = 0; i < n; i++) {
+        char per = (char)rnd.Next(26, 128);
+        list.Add(per);
+      }
+      return list;
+    }
+    static void Main(string[] args) {
+        Random rnd = new Random();
+        Console.Write("Введите n: ");
+        int n = int.Parse(Console.ReadLine());
+        int type = rnd.Next(1, 4);
+        if(type == 1) {
+          var Ilist = new List<int>();
+          Ilist = GetListInt(n);
+          for(int i = 0; i < n; i++) {
+            Console.Write(Ilist[i] + " ");
+          }
+        }
+        else if(type == 2) {
+          var Dlist = new List<double>();
+          Dlist = GetListDouble(n);
+          for(int i = 0; i < n; i++) {
+            Console.Write(Dlist[i] + " ");
+          }
+        }
+        else if(type == 3) {
+          var Clist = new List<char>();
+          Clist = GetListChar(n);
+          for(int i = 0; i < n; i++) {
+            Console.Write(Clist[i] + " ");
+          }
+        }
+    }
+}
